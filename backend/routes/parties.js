@@ -12,7 +12,7 @@ let parties = [
         genres: ['salsa', 'reggaeton'],
         location: 'El Cielo Lounge',
         isFree: true,
-        id: uuidv4(),
+        id: "ayayaya",
     },
     {
         partyName: 'Electro Vibes',
@@ -116,7 +116,6 @@ router.delete('/:id', (req, res) => {
 router.patch('/:id', (req, res) => {
     const { id } = req.params;
     const { partyName, djs, date, startTime, genres, location, isFree } = req.body;
-
     const party = parties.find((party) => party.id === id);
 
     if (!party) {
