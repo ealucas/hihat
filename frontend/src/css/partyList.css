@@ -1,32 +1,47 @@
-.table {
-    display: flex;
-    padding: 50px auto;
-    flex-direction: column;
-    width: 100%;
-    border: 1px solid #000;
-    margin-top: 20px;
-  }
-  
-  .row {
-    display: flex;
-  }
-  
-  .cell {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #000;
-    text-align: center;
-  }
-  
-  .header {
-    font-weight: bold;
-    background-color: #f4f4f4;
-  }
-  
-  /* Styling for date to display month/day horizontally */
-  .date {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px; /* Add space between month and day */
-  }
+
+.feed-container{
+  display: flex;
+  text-align: center;
+  margin: 50px auto;
+  flex-flow: column wrap;
+  width: 70%;
+
+}
+
+.day-group{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.day-title{
+  padding: 10px;
+  text-align: center;
+  flex-basis: 100%;
+  padding: 5px;
+}
+
+.feed-item{
+  padding: 10px;
+}
+.custom-hl{
+  font-size: smaller;
+  font-style: italic;
+}
+
+
+.genres-hl{
+  color:  #8f42ce;
+}
+
+.artists-hl{
+  color: rgb(206, 142, 23);
+}
+
+.location-hl{
+  color: #121212;
+  font-weight: 800;
+}
+
+.free {
+  color: red;
+}

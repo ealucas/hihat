@@ -5,9 +5,10 @@ import '../css/partyList.css';
 const formatDate = (dateString) => {
   const date = new Date(dateString);
   const month = date.getMonth() + 1; // getMonth() is zero-based
-  const day = date.getDate();
+  const day = date.getDate() + 1;
   return `${day}/${month}`;
 };
+
 
 const PartyList = () => {
   const [parties, setParties] = useState([]);
@@ -27,41 +28,36 @@ const PartyList = () => {
 
     fetchParties();
   }, []); // Empty dependency array ensures it runs only once (like componentDidMount)
+  const groupedByDay = parties.reduce((acc, party) => {
+    const day = party.date; 
+    if (!acc[day]) acc[day] = [];
+    acc[day].push(party);
+    return acc;
+  }, {});
+  
 
   return (
-    <div>
-      {error && <p>{error}</p>} {/* Display error if there is any */}
-      {parties.length === 0 ? (
-        <p>No parties available</p>
-      ) : (
-        <div className="table">
-          <div className="row header">
-            <div className="cell">Data</div>
-            <div className="cell">Hora</div>
-            <div className="cell">Festa</div>
-            <div className="cell">Lineup</div>
-            <div className="cell">Som</div>
-            <div className="cell">Local</div>
-            <div className="cell">De graça?</div>
-          </div>
-          {parties.map((party) => (
-            <div key={party.id} className="row">
-              <div className="cell">{formatDate(party.date)}</div>
-              <div className="cell">{party.startTime || 'Não informado'}</div>
-              <div className="cell">{party.partyName || 'Não informado'}</div>
-              <div className="cell">
-                {party.djs}
-              </div>
-              <div className="cell">
-                {party.genres}
-              </div>
-              <div className="cell">{party.location || 'Não informado'}</div>
-              <div className="cell">{party.isFree ? "GRÁTIS" : "Pago"}</div>
+    <div className="feed-container">
+    {Object.keys(groupedByDay).map((day) => (
+      <div key={day} className="day-group">
+        <p className="day-title">{formatDate(day)}</p>
+        {groupedByDay[day].map((party, index) => (
+          <div className="feed-item">
+            <div key={index}>
+              <h2 className="partyName">{party.partyName || '?'}</h2>
+              <p className="custom-hl artists-hl">๑♡๑ artistas ๑♡๑</p>
+              <p className="lineup">{party.djs.join("\t  *  \t")}</p>
+              <p className="custom-hl genres-hl">*✵⋆ gêneros *✵⋆</p>
+              <p className="genres">{party.genres ? party.genres.join("\t\t\t") : null}</p>
+              <p className="custom-hl location-hl">༺❀༻ local  ༺❀༻</p>
+              <p className="location">{party.location}</p>
+              <p className="free">{party.isFree ? "GRÁTIS" : null}</p>
             </div>
-          ))}
-        </div>
-      )}
-    </div>
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
   );
 };
 

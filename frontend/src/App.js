@@ -7,15 +7,18 @@ function App() {
   return (
     <Router> {/* Ensures React Router is enabled */}
       <div className="App">
-        <nav>
+        <nav className="header">
           <Link className="logo" to="/">hihat</Link> {/* Optional: Add Home link */}
+          <p>coleção de roles em bh</p>
         </nav>
         <Routes>
           {/* Define your routes */}
           <Route path="/" element={<PartyList />} />
           <Route path="/addParty" element={<AddPartyForm />} />
         </Routes>
-        <Link to="/addParty">Adicione sua festa </Link>
+        <div className="addParty">
+        <Link to="/addParty">Não encontrou sua festa?</Link>
+        </div>
       </div>
     </Router>
   );
