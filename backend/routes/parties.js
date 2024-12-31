@@ -12,6 +12,7 @@ let parties = [
         location: 'Whiterun',
         isFree: true,
         id: "ayayaya",
+        show: false,
     },
     {
         partyName: 'GA-2100',
@@ -22,6 +23,7 @@ let parties = [
         location: 'Solitude',
         isFree: false,
         id: uuidv4(),
+        show: false,
     },
     {
         partyName: 'DW-5600',
@@ -32,6 +34,7 @@ let parties = [
         location: 'Riften',
         isFree: true,
         id: uuidv4(),
+        show: false,
     },
     {
         partyName: 'GA-700',
@@ -42,6 +45,7 @@ let parties = [
         location: 'Markarth',
         isFree: false,
         id: uuidv4(),
+        show: false,
     },
     {
         partyName: 'GBA-800',
@@ -52,6 +56,7 @@ let parties = [
         location: 'Windhelm',
         isFree: false,
         id: uuidv4(),
+        show: false,
     },
     {
         partyName: 'GA-100',
@@ -62,6 +67,7 @@ let parties = [
         location: 'Falkreath',
         isFree: false,
         id: uuidv4(),
+        show: false,
     },
     {
         partyName: 'GBD-H1000',
@@ -72,6 +78,7 @@ let parties = [
         location: 'Markarth',
         isFree: false,
         id: uuidv4(),
+        show: false,
     },
     {
         partyName: 'GA-110',
@@ -87,6 +94,7 @@ let parties = [
         location: 'Dawnstar',
         isFree: false,
         id: uuidv4(),
+        show: false,
     },
 ];
 

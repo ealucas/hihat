@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import '../css/partyList.css';
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
-  const month = date.getMonth() + 1; // getMonth() is zero-based
+  const month = date.getMonth() + 1;
   const day = date.getDate() + 1;
   return `${day}/${month}`;
 };
@@ -14,7 +15,6 @@ const PartyList = () => {
   const [parties, setParties] = useState([]);
   const [error, setError] = useState(null);
 
-  // Fetch party data from the backend when the component mounts
   useEffect(() => {
     const fetchParties = async () => {
       try {
@@ -27,7 +27,7 @@ const PartyList = () => {
     };
 
     fetchParties();
-  }, []); // Empty dependency array ensures it runs only once (like componentDidMount)
+  }, []);
   const groupedByDay = parties.reduce((acc, party) => {
     const day = party.date; 
     if (!acc[day]) acc[day] = [];
@@ -38,11 +38,12 @@ const PartyList = () => {
 
   return (
     <div className="feed-container">
+    <p className="thisWeek"> esta semana em belo horizonte . . . </p>
     {Object.keys(groupedByDay).map((day) => (
       <div key={day} className="day-group">
         <p className="day-title">{formatDate(day)}</p>
         {groupedByDay[day].map((party, index) => (
-          <div className="feed-item">
+          <div key={party.id} className="feed-item">
             <div key={index}>
               <h2 className="partyName">{party.partyName || '?'}</h2>
               <p className="custom-hl artists-hl">๑♡๑ artistas ๑♡๑</p>
@@ -57,6 +58,7 @@ const PartyList = () => {
         ))}
       </div>
     ))}
+    <Link to="/addParty">Não encontrou sua festa?</Link>
   </div>
   );
 };

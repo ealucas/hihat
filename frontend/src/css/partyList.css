@@ -1,5 +1,6 @@
 
 .feed-container{
+  font-size: 14px;
   display: flex;
   text-align: center;
   margin: 50px auto;
@@ -15,12 +16,15 @@
 }
 .day-title{
   padding: 10px;
-  text-align: center;
+  text-align: left;
+  font-size: large;
+  font-weight: 400;
   flex-basis: 100%;
   padding: 5px;
 }
 
 .feed-item{
+  height: 10%;  
   padding: 10px;
 }
 .custom-hl{
@@ -44,4 +48,12 @@
 
 .free {
   color: red;
+}
+
+.thisWeek {
+  text-align: left;
+  font-size: large;
+  font-weight: 200;
+  font-style: italic;
+  font-family: cursive;
 }
