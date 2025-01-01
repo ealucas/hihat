@@ -14,6 +14,7 @@ const formatDate = (dateString) => {
 const PartyList = () => {
   const [parties, setParties] = useState([]);
   const [error, setError] = useState(null);
+  const [selectedGenre, setSelectedGenre] = useState(null);
 
   useEffect(() => {
     const fetchParties = async () => {
@@ -28,17 +29,36 @@ const PartyList = () => {
 
     fetchParties();
   }, []);
-  const groupedByDay = parties.reduce((acc, party) => {
-    const day = party.date; 
+  const genres = Array.from(
+    new Set(parties.flatMap((party) => party.genres || []))
+  );
+  const filteredParties = selectedGenre
+  ? parties.filter((party) => party.genres?.includes(selectedGenre))
+  : parties;
+
+  const groupedByDay = filteredParties.reduce((acc, party) => {
+    const day = party.date;
     if (!acc[day]) acc[day] = [];
     acc[day].push(party);
     return acc;
   }, {});
-  
 
+  const handleGenreClick = (genre) => {
+    setSelectedGenre(selectedGenre === genre ? null : genre);
+  };
   return (
-    <div className="feed-container">
-    <p className="thisWeek"> esta semana em belo horizonte . . . </p>
+    <div className="feedContainer">
+    <div className="genreFilters">
+         {genres.map((genre) => (
+           <button
+             key={genre}
+             onClick={() => handleGenreClick(genre)}
+             className={selectedGenre === genre ? 'active' : ''}
+           >
+             {genre}
+           </button>
+         ))}
+       </div>
     {Object.keys(groupedByDay).map((day) => (
       <div key={day} className="day-group">
         <p className="day-title">{formatDate(day)}</p>
@@ -49,7 +69,7 @@ const PartyList = () => {
               <p className="custom-hl artists-hl">๑♡๑ artistas ๑♡๑</p>
               <p className="lineup">{party.djs.join("\t  *  \t")}</p>
               <p className="custom-hl genres-hl">*✵⋆ gêneros *✵⋆</p>
-              <p className="genres">{party.genres ? party.genres.join("\t\t\t") : null}</p>
+              <p className="genres">{party.genres ? party.genres.join(" * ") : null}</p>
               <p className="custom-hl location-hl">༺❀༻ local  ༺❀༻</p>
               <p className="location">{party.location}</p>
               <p className="free">{party.isFree ? "GRÁTIS" : null}</p>

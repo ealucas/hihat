@@ -43,7 +43,7 @@ const Admin = () => {
       const updatedShow = e.target.checked; // Get new checkbox state
   
       try {
-        const response = await axios.put(`http://localhost:5000/parties/${partyId}`, {
+        const response = await axios.patch(`http://localhost:5000/parties/${partyId}`, {
           show: updatedShow, // Send updated visibility state to server
         });
   
@@ -65,14 +65,14 @@ const Admin = () => {
       <div className="adminContainer">
       <div className="tableHeader partyItem"> 
         <div className="idHeader">✩ id ✩ </div>
-        <div className="partyHeader">🗡️ festa  🗡️ </div>
+        <div className="partyHeader">🗡️festa🗡️ </div>
         <div className="actionsHeader">★ ações ★</div>
       </div>
       <ul>
         {parties.map((party) => (
           <li key={party.id} className="partyItem">
-            <div className="partyId">{party.id}</div>
-            <div className="partyName">{party.partyName}</div>
+            <p>{party.id}</p>
+            <p>{party.partyName}</p>
             <div className="actions">
               <label className="showCheckbox">  
                <label>

@@ -27,8 +27,7 @@ coverage/
 .env.test.local
 .env.production.local
 
-# Tool versions (assuming .tool_versions is used for managing specific versions)
-.tool_versions
+.tool-versions
 
 # Other files/folders that may not be needed
 npm-debug.log*

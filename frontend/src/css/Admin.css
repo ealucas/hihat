@@ -17,7 +17,7 @@ ul {
 
 .partyItem {
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr; /* Creates a grid with columns for ID, Name, and actions */
+    grid-template-columns: 1fr 1fr 2.5fr; /* Creates a grid with columns for ID, Name, and actions */
     gap: 20px; /* Space between columns */
     padding: 10px;
     border-bottom: 1px solid #e0e0e0; /* Light border between rows */
@@ -25,7 +25,11 @@ ul {
 }
 
 .showCheckbox {
-    padding-right: 30px;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-items: center;
+    padding: 4px;
 }
 
 .tableHeader {
@@ -36,7 +40,8 @@ ul {
     color: rgb(206, 142, 23);
 }
 .partyName {
-    font-weight: 800;
+    font-weight: bold;
+    font-size: small;
 }
 .actionsHeader {
     color: rgb(56, 146, 220);
@@ -49,3 +54,7 @@ button {
   border: none;
 }
 
+.partyItem p{
+width: 100%;
+word-break: break-all;
+}

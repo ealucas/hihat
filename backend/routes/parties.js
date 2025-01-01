@@ -90,7 +90,7 @@ let parties = [
           ],
         date: '2024-12-07',
         startTime: '22:00',
-        genres: ['techno EBM'],
+        genres: ['EBM'],
         location: 'Dawnstar',
         isFree: false,
         id: uuidv4(),
