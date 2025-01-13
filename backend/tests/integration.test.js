@@ -27,7 +27,7 @@ describe('Party API', () => {
 
   // Establish MongoDB connection before tests run
   beforeAll(async () => {
-    await mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }); // ???
 
     // Create an Express server instance
     const app = express();
