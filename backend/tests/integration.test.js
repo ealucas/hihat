@@ -3,11 +3,9 @@ import mongoose from 'mongoose';
 import express from 'express';
 import Party from '../models/Party';
 import partyRoutes from '../routes/parties';
-import dotenv from 'dotenv';
 import { Types } from 'mongoose'; // Import Mongoose Types for ObjectId
 import { log, error } from 'console';
 
-dotenv.config();
 
 describe('Party API', () => {
   let server;
