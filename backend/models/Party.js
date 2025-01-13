@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import { v4 as uuidv4 } from 'uuid';
 
 const partySchema = new mongoose.Schema({
   partyName: { type: String, required: true },
@@ -11,9 +10,6 @@ const partySchema = new mongoose.Schema({
   isFree: { type: Boolean, required: true },
   show: { type: Boolean, default: false },
 });
-
-// Ensure `id` is indexed and unique
-partySchema.index({ id: 1 }, { unique: true });
 
 const Party = mongoose.model('Party', partySchema);
 
