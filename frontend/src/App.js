@@ -14,7 +14,6 @@ function App() {
           <Link className="logo" to="/">hihat</Link>
         </nav>
         <Routes>
-          {/* Define your routes */}
           <Route path="/" element={<PartyList />} />
           <Route path="/login" element={<Login />} />
           <Route path="/parties/:id/edit" element={<EditParty />} />
