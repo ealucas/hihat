@@ -28,7 +28,9 @@ jobs:
         run: |
           cd backend
           npm install
-
+      - name: Set environment variable for MongoDB URI
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
       - name: Run tests
         run: |
           cd backend
