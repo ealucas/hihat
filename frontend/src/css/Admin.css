@@ -58,3 +58,22 @@ button {
 width: 100%;
 word-break: break-all;
 }
+
+.logoutButton {
+    background-color: rgb(246, 64, 64);
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logoutButton:hover {
+    background-color: rgb(155, 41, 41);
+  }
+  
+  .logoutButton:focus {
+    outline: none;
+  }

@@ -55,7 +55,7 @@ const AddPartyForm = () => {
         headers: { 'Content-Type': 'application/json' },
       });
 
-      if (response.status === 200) {
+      if (response.status === 201) {
         alert('Festa adicionada com sucesso!');
         setFormData({
           partyName: '',
