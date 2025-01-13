@@ -25,13 +25,13 @@ jobs:
           node-version: '18.18.0'
 
       - name: Install dependencies
-        run: |
+        run:
           cd backend
           npm install
 
       - name: Run tests
         env:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
-        run: |
+        run:
           cd backend
           npm test
