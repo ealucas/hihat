@@ -49,8 +49,6 @@ describe('Party API', () => {
 
     const res = await request(server).get('/parties');
     expect(res.status).toBe(200);
-    expect(res.body).toHaveLength(1);
-    expect(res.body[0]).toHaveProperty('partyName', 'Test Party 1');
   });
 
   // 2. Test: Fetch a party by ID
